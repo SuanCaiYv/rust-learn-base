@@ -9,10 +9,11 @@ use crate::base::*;
 use crate::ownership::*;
 use crate::struct0::*;
 use crate::enum_match::*;
+use crate::vector::*;
 use std::io::{stdin, Read};
 
 fn main() {
-    chap6()
+    chap8()
 }
 
 fn chap1_3() {
@@ -58,4 +59,8 @@ fn chap6() {
     num_fmt(3);
     only_one(Some(1));
     only_one(Some(2));
+}
+
+fn chap8() {
+    just_display_vec();
 }
