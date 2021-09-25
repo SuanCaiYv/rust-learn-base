@@ -3,6 +3,10 @@ mod ownership;
 mod struct0;
 mod enum_match;
 mod vector;
+mod string0;
+mod generic;
+mod trait0;
+mod lifetime0;
 
 use std::io;
 use crate::base::*;
@@ -10,10 +14,14 @@ use crate::ownership::*;
 use crate::struct0::*;
 use crate::enum_match::*;
 use crate::vector::*;
-use std::io::{stdin, Read};
+use crate::struct0::*;
+use crate::string0::*;
+use crate::generic::*;
+use crate::trait0::*;
+use crate::lifetime0::test_lifetime;
 
 fn main() {
-    chap8()
+    chap9();
 }
 
 fn chap1_3() {
@@ -63,4 +71,11 @@ fn chap6() {
 
 fn chap8() {
     just_display_vec();
+    test_string();
+}
+
+fn chap9() {
+    test_double_val();
+    test_trait();
+    test_lifetime();
 }

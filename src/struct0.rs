@@ -6,6 +6,7 @@ pub struct Phone {
     pub id: u64,
 }
 
+/// 结构体属性的所有权和结构体对象绑定，一旦属性所有权转移，必须转移对象所有权，无法做到保留对象所有权的同时，转移属性所有权
 impl Phone {
     // 带self的则是实例方法
     pub fn display(&self) {
