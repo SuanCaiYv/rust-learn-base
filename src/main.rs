@@ -7,6 +7,9 @@ mod string0;
 mod generic;
 mod trait0;
 mod lifetime0;
+mod function;
+mod iterator;
+mod pointer;
 
 use std::io;
 use crate::base::*;
@@ -18,10 +21,16 @@ use crate::struct0::*;
 use crate::string0::*;
 use crate::generic::*;
 use crate::trait0::*;
-use crate::lifetime0::test_lifetime;
+use crate::lifetime0::*;
+use crate::function::*;
+use crate::iterator::*;
+use crate::pointer::*;
+use std::collections::HashMap;
+use std::thread;
+use std::time::Duration;
 
 fn main() {
-    chap9();
+    chap15()
 }
 
 fn chap1_3() {
@@ -78,4 +87,14 @@ fn chap9() {
     test_double_val();
     test_trait();
     test_lifetime();
+}
+
+fn chap13() {
+    test_closure();
+    test_iterator();
+}
+
+fn chap15() {
+    // test_box();
+    test_deref();
 }
