@@ -10,6 +10,7 @@ mod lifetime0;
 mod function;
 mod iterator;
 mod pointer;
+mod thread0;
 
 use std::io;
 use crate::base::*;
@@ -25,12 +26,13 @@ use crate::lifetime0::*;
 use crate::function::*;
 use crate::iterator::*;
 use crate::pointer::*;
+use crate::thread0::*;
 use std::collections::HashMap;
 use std::thread;
 use std::time::Duration;
 
 fn main() {
-    chap15()
+    chap16()
 }
 
 fn chap1_3() {
@@ -95,6 +97,10 @@ fn chap13() {
 }
 
 fn chap15() {
-    // test_box();
+    test_box();
     test_deref();
+}
+
+fn chap16() {
+    test_thread();
 }
