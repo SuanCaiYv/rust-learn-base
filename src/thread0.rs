@@ -4,6 +4,12 @@ use std::time::Duration;
 use std::sync::{Mutex, Arc};
 use std::borrow::Borrow;
 
+/// 这里提一些不太好实践的知识，就是Rust有两个标记trait：Send和Sync。
+/// 所有实现了Send的结构体，可以在线程之间进行所有权的转移；
+/// 所有实现了Sync的结构体，可以在多个线程之间进行不可变共享；
+/// 这里我们可以这样理解：Send代表所有权，Sync代表借用，所有权可以在线程(对比函数)之间转移，多个不可变借用可以存在于多个线程(对比函数)中。
+/// 一般来说，类型会默认实现这两个接口，基本类型都实现了，如果一个类型所有字段都实现了，则这个类型也实现了这两个接口。
+/// 除非显式地使用非运算符['!']去指明不去实现二者之一，否则会默认实现。
 pub fn test_thread() {
     let handle1 = spawn(|| {
         println!("thread started!")
@@ -37,7 +43,7 @@ pub fn test_thread() {
 
     // 创建一个互斥量
     let lock0 = Mutex::new(12);
-    // 此外，想要在多个线程中共享锁，需要每个线程都获得锁对象所有权，但是Rc<>不适合并发场景，因为设计原子更新问题
+    // 此外，想要在多个线程中共享锁，需要每个线程都获得锁对象所有权，但是Rc<>不适合并发场景，因为涉及原子更新问题
     // 这里我们使用线程安全的Arc<>来实现。
     let lock = Arc::new(lock0);
     let mut handles = Vec::new();
