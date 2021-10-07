@@ -12,6 +12,7 @@ mod iterator;
 mod pointer;
 mod thread0;
 mod test;
+mod oop;
 
 use std::io;
 use crate::base::*;
@@ -29,12 +30,13 @@ use crate::iterator::*;
 use crate::pointer::*;
 use crate::thread0::*;
 use crate::test::test;
+use crate::oop::*;
 use std::collections::HashMap;
 use std::thread;
 use std::time::Duration;
 
 fn main() {
-    test()
+    chap17()
 }
 
 fn chap1_3() {
@@ -105,4 +107,8 @@ fn chap15() {
 
 fn chap16() {
     test_thread();
+}
+
+fn chap17() {
+    test_oop();
 }
