@@ -13,6 +13,8 @@ mod pointer;
 mod thread0;
 mod test;
 mod oop;
+mod design_mode;
+mod unsafe0;
 
 use std::io;
 use crate::base::*;
@@ -31,12 +33,14 @@ use crate::pointer::*;
 use crate::thread0::*;
 use crate::test::test;
 use crate::oop::*;
+use crate::design_mode::*;
+use crate::unsafe0::*;
 use std::collections::HashMap;
 use std::thread;
 use std::time::Duration;
 
 fn main() {
-    chap17()
+    chap18()
 }
 
 fn chap1_3() {
@@ -111,4 +115,8 @@ fn chap16() {
 
 fn chap17() {
     test_oop();
+}
+
+fn chap18() {
+    design_mode_note();
 }
