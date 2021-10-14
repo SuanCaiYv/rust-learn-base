@@ -40,7 +40,7 @@ use std::thread;
 use std::time::Duration;
 
 fn main() {
-    chap18()
+    println!("Hello, Rust.")
 }
 
 fn chap1_3() {
