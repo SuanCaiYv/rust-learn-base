@@ -42,7 +42,7 @@ use std::thread;
 use std::time::Duration;
 
 fn main() {
-    test_unsafe();
+    lite_web()
 }
 
 fn chap1_3() {
