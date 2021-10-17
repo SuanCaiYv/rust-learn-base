@@ -15,7 +15,7 @@ struct Cat {
 
 impl Print for Dog {
     fn print(&self) {
-        println!("T'm a dog: {}", self.name);
+        println!("I'm a dog: {}", self.name);
     }
 }
 
