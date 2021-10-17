@@ -15,6 +15,7 @@ mod test;
 mod oop;
 mod design_mode;
 mod unsafe0;
+mod lite_web;
 
 use std::io;
 use crate::base::*;
@@ -35,12 +36,13 @@ use crate::test::test;
 use crate::oop::*;
 use crate::design_mode::*;
 use crate::unsafe0::*;
+use crate::lite_web::*;
 use std::collections::HashMap;
 use std::thread;
 use std::time::Duration;
 
 fn main() {
-    println!("Hello, Rust.")
+    test_unsafe();
 }
 
 fn chap1_3() {
