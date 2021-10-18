@@ -52,6 +52,10 @@ impl Worker {
     fn new(id: String, clone: Arc<Mutex<Receiver<Job>>>) -> Self {
         let thread_handle = spawn(move || {
             loop {
+                // 这里有一个涉及到生命周期和锁释放的小坑。
+                // 如果我们使用while let语句，那么下面这个申请锁成功之后，得到的锁对象的作用域是整个while {}块
+                // 所以会等到do_job()执行完毕才离开作用域，然后利用生命周期回收并释放，所以这样的话依旧会阻塞其他请求
+                // 所以我们不能这么写，我们需要把锁申请放在单独的作用域下，这样在执行do_job()之前，就可以释放锁
                 let rcv_guard = clone.lock().unwrap();
                 let job = rcv_guard.recv().unwrap();
                 do_job(job);
