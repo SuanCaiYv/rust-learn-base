@@ -114,10 +114,10 @@ fn bytes_to_u32(bytes: &[u8; 4]) -> u32 {
 }
 
 fn tcp_client() {
-    for idx in 0..5 {
+    for idx in 0..50 {
         let handle = spawn(move || {
+            sleep(Duration::from_micros((50-idx)/3));
             let mut socket = TcpStream::connect("127.0.0.1:8190").unwrap();
-            println!("input 5 loops....");
             for i in 0..5 {
                 let mut input = idx.to_string() + " : " + &i.to_string();
                 let mut req = Vec::new();
